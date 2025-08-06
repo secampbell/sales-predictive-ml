@@ -1,4 +1,4 @@
-# 📈 Sales Predictive ML — Revenue & Quota Insights  
+# 📈 Sales Predictive ML - Revenue & Quota Insights  
 A mini-project in **Azure ML Studio** that
 
 1. forecasts full-year revenue for 2025 & 2026, and  
