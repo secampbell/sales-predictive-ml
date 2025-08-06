@@ -1,8 +1,8 @@
 # 📈 Sales Predictive ML — Revenue & Quota Insights  
 A mini-project in **Azure ML Studio** that
 
-1. 🔮 forecasts full-year revenue for 2025 & 2026, and  
-2. ✅ predicts whether each region manager will hit 2026 quota.
+1. forecasts full-year revenue for 2025 & 2026, and  
+2. predicts whether each region manager will hit 2026 quota.
 
 Built for an AI portfolio using **synthetic B2B sales data** from robotics firm **Neuverra**.  
 _All dollars, reps, and territories are fictitious._  
