@@ -29,10 +29,10 @@ _All dollars, reps, and territories are fictitious._
 | **2026 Revenue Regression** | `sales_2026` | Random Forest | MAE ≈ 83 k |
 | **Quota Hit Classification** | `quota_hit_2026` (Yes/No)<br>(top 75 % revenue ⇒ Yes) | Random Forest Classifier | ROC-AUC ≈ 1.00 |
 
-> **Why so perfect?** 👉 Data were randomly generated & “shaped” for illustration.  
+> **Why so perfect?** 👉 Data was randomly generated & “shaped” for illustration.  
 > Focus is **process competence**, not production accuracy.
 
-Key predictive features:
+Key multivariate, predictive features:
 
 - Prior-year sales `sales_2024`, `sales_2025`
 - Activity mix `active_customers`, `Avg_Deal_Size`
