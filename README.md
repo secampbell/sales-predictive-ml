@@ -67,14 +67,3 @@ Steps taken:
 |:---:|:---:|
 | ![2026 territory](assets/2026-region-stack.jpg) | ![2026 reps](assets/2026-rep-stack.jpg) |
 
-Evaluation:
-
-<table>
-  <tr>
-    <td><img src="assets/confusion_matrix.png" width="240"/></td>
-    <td><img src="assets/roc_curve.png"        width="240"/></td>
-    <td><img src="assets/precision_recall.png" width="240"/></td>
-  </tr>
-</table>
-
-
