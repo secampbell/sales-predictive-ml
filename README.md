@@ -1,34 +1,82 @@
-# Sales Predictive ML  
-Forecasting & Quota-Attainment Classification  
+# 📈 Sales Predictive ML — Revenue & Quota Insights  
+A mini-project in **Azure ML Studio** that
 
-![pipeline](assets/overview_banner.png)
+1. 🔮 forecasts full-year revenue for 2025 & 2026, and  
+2. ✅ predicts whether each region manager will hit 2026 quota.
 
----
-
-## 1 • Project Overview
-This repo contains an Azure ML Studio notebook that walks through a **three-part predictive workflow** for a fictional B2B sales organization:
-
-| Task | Goal | Technique |
-|------|------|-----------|
-| 1. **2025 Full-Year Revenue** | Estimate full-year revenue from half-year YTD figures | ElasticNet & Random Forest regression |
-| 2. **2026 Revenue Projection** | Predict next-year revenue using multi-year history & activity features | Random Forest regression |
-| 3. **Quota Attainment 2026** | Binary classification → will a rep/territory hit 2026 quota? | Random Forest classifier (ROC ≈ 1.0 on demo data) |
-
-*All numbers are synthetic and “shaped” for demo purposes; focus is on process competence.*
+Built for an AI portfolio using **synthetic B2B sales data** from robotics firm **Neuverra**.  
+_All dollars, reps, and territories are fictitious._  
 
 ---
 
-## 2 • Dataset
-`sales_territories-f.csv` ( ≈ 60 rows × 21 columns )
+## 📦 What’s Inside
 
-| Column groups | Examples |
-|---------------|----------|
-| IDs / hierarchy | `territory_id`, `territory_name`, `region_manager_name` |
-| Activity | `active_customers`, `Avg_Deal_Size` |
-| Financial history | `sales_2022`-`sales_2025_YTD`, `total_sales` |
-| Target flags | `sales_2025_full_year` (engineered), `sales_2026` (predicted), `quota_hit_2026` (engineered binary) |
+| File / Notebook                             | Purpose |
+|---------------------------------------------|---------|
+| `sales_forecast_regression_notebook.ipynb`  | End-to-end walkthrough (data prep → models → charts). |
+| `2025-region-stack.jpg` • `2025-rep-stack.jpg` | Top 10 leaderboard plots for 2025 revenue (territory & region manager). |
+| `2026-region-stack.jpg` • `2026-rep-stack.jpg` | Same style charts projecting 2026 revenue. |
+| `confusion_matrix.png`                      | 2×2 heat-map for quota classifier. |
+| `roc_curve.png`                             | ROC curve (AUC≈1.00 on toy data 💀). |
+| `precision_recall.png`                      | Precision-Recall curve (AP≈1.00 on toy data). |
+| `sales_territories-f.csv`                   | Synthetic dataset (≈60 rows × 21 cols). |
 
 ---
 
-## 3 • Key Notebooks & Scripts
+## 🧠 Model Summary
+
+| Task | Target | Algorithm | Metric (demo) |
+|------|--------|-----------|---------------|
+| **2025 Revenue Regression** | `sales_2025_full_year` | ElasticNet, Random Forest | MAE ≈ 107 k |
+| **2026 Revenue Regression** | `sales_2026` | Random Forest | MAE ≈ 83 k |
+| **Quota Hit Classification** | `quota_hit_2026` (Yes/No)<br>(top 75 % revenue ⇒ Yes) | Random Forest Classifier | ROC-AUC ≈ 1.00 |
+
+> **Why so perfect?** 👉 Data were randomly generated & “shaped” for illustration.  
+> Focus is **process competence**, not production accuracy.
+
+Key predictive features:
+
+- Prior-year sales `sales_2024`, `sales_2025`
+- Activity mix `active_customers`, `Avg_Deal_Size`
+- Historic conversion KPIs (`Lead_Conversion_Rate`, `Quota_Attainment`)
+
+---
+
+## 🛠️ Tech Stack
+* Azure Machine Learning Studio (Python 3.10 kernel)  
+* Pandas • NumPy • Matplotlib • Seaborn  
+* Scikit-learn (ElasticNet, RandomForest[Regressor + Classifier])  
+
+---
+
+## 🗂️ Dataset Notes  
+The “raw” CSV was purposefully chaotic (random integers, swapped headers, etc.).  
+Steps taken:
+
+1. **Reshape / clean** — drop index col, coerce numerics, fill / drop NA.  
+2. **Engineer targets** — YTD → full-year extrapolation, 25th-percentile quota rule.  
+3. **Sanity EDA** — histograms & correlation checks (not shown here).
+
+---
+
+## 📊 Sample Visuals
+
+| 2025 Territory | 2025 Reps |
+|:---:|:---:|
+| ![2025 territory](assets/2025-region-stack.jpg) | ![2025 reps](assets/2025-rep-stack.jpg) |
+
+| 2026 Territory | 2026 Reps |
+|:---:|:---:|
+| ![2026 territory](assets/2026-region-stack.jpg) | ![2026 reps](assets/2026-rep-stack.jpg) |
+
+Evaluation:
+
+<table>
+  <tr>
+    <td><img src="assets/confusion_matrix.png" width="240"/></td>
+    <td><img src="assets/roc_curve.png"        width="240"/></td>
+    <td><img src="assets/precision_recall.png" width="240"/></td>
+  </tr>
+</table>
+
 
