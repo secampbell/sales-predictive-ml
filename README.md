@@ -16,9 +16,7 @@ _All dollars, reps, and territories are fictitious._
 | `sales_forecast_regression_notebook.ipynb`  | End-to-end walkthrough (data prep → models → charts). |
 | `2025-region-stack.jpg` • `2025-rep-stack.jpg` | Top 10 leaderboard plots for 2025 revenue (territory & region manager). |
 | `2026-region-stack.jpg` • `2026-rep-stack.jpg` | Same style charts projecting 2026 revenue. |
-| `confusion_matrix.png`                      | 2×2 heat-map for quota classifier. |
-| `roc_curve.png`                             | ROC curve (AUC≈1.00 on toy data 💀). |
-| `precision_recall.png`                      | Precision-Recall curve (AP≈1.00 on toy data). |
+| `conf_matrix-roc_curve-precision.png` | 2×2 heat-map for quota classifier; ROC curve (AUC≈1.00 on toy data 💀); Precision-Recall curve (AP≈1.00 on toy data).|
 | `sales_territories-f.csv`                   | Synthetic dataset (≈60 rows × 21 cols). |
 
 ---
